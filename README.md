@@ -1,5 +1,4 @@
-Forked from Slack API in Go [![GoDoc](https://godoc.org/github.com/nlopes/slack?status.svg)](https://godoc.org/github.com/nlopes/slack) [![Build Status](https://travis-ci.org/nlopes/slack.svg)](https://travis-ci.org/nlopes/slack)
-===============
+Forked from Slack API in Go  github.com/nlopes/slack
 
 This library supports most if not all of the `api.slack.com` REST
 calls, as well as the Real-Time Messaging protocol over websocket, in
