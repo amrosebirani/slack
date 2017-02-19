@@ -38,16 +38,16 @@ func (eapi *APIEventManager) ReceiveIncomingEvent(data io.ReadCloser, apiEvent *
 	}
 	v, exists := eventAPIMapping[event.Type]
 	if !exists {
-		eapi.Debugf("EAPI Error, received unmapped event %q: %s\n", event.Type, string(event))
-		err = fmt.Errorf("EAPI Error, received unmapped event %q: %s\n", event.Type, string(event))
+		eapi.Debugf("EAPI Error, received unmapped event %q: %s\n", event.Type, string(rawEvent))
+		err = fmt.Errorf("EAPI Error, received unmapped event %q: %s\n", event.Type, string(rawEvent))
 		return err
 	}
 	t := reflect.TypeOf(v)
 	recvEvent := reflect.New(t).Interface()
 	err = json.Unmarshal(rawEvent, recvEvent)
 	if err != nil {
-		eapi.Debugf("EAPI Error, could not unmarshall event %q: %s\n", event.Type, string(event))
-		err = fmt.Errorf("EAPI Error, could not unmarshall event %q: %s\n", event.Type, string(event))
+		eapi.Debugf("EAPI Error, could not unmarshall event %q: %s\n", event.Type, string(rawEvent))
+		err = fmt.Errorf("EAPI Error, could not unmarshall event %q: %s\n", event.Type, string(rawEvent))
 		return err
 	}
 	apiEvent.Type = event.Type
